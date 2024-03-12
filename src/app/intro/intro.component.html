@@ -1,0 +1,220 @@
+<!DOCTYPE HTML>
+<html>
+<body class="is-preload">
+
+    <!-- Wrapper 標題背景-->
+    <div id="wrapper" class="fade-in">
+
+        <!-- Intro -->
+        <div id="intro" *ngIf="!isIntroHidden">
+            <h1>
+                這是提供創作者
+                <br />
+                <span style="color:orange">夢想</span>起飛的平台
+            </h1>
+            <p>募書是一個群眾集資平台。刊登各式各樣的創意計畫，歡迎每一位喜歡夢想、喜歡美好事物的人們。</p>
+            <ul class="actions">
+                <li>
+                    <a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Header -->
+        <header id="header">
+            <a href="index.html" class="logo">募資平台</a>
+        </header>
+
+        <!-- Nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li class="active">
+                    <a href="index.html">插畫漫畫</a>
+                </li>
+                <li>
+                    <a href="generic.html">教育</a>
+                </li>
+                <li>
+                    <a href="elements.html">時尚</a>
+                </li>
+                <li>
+                    <a href="">科技</a>
+                </li>
+                <li>
+                    <a href="">飲食</a>
+                </li>
+            </ul>
+            <ul class="icons">
+                <li>
+                    <a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a>
+                </li>
+                <li>
+                    <a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a>
+                </li>
+                <li>
+                    <a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a>
+                </li>
+                <li>
+                    <a href="#" class="fa-brands fa-line fa-lg"><span class="label"></span></a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main 主內容-->
+        <div id="main">
+
+            <!-- Featured Post -->
+
+            <article class="post featured">
+                <header class="major">
+                  <h2>
+                    <a href="#">
+                        熱門專案
+                    </a>
+                  <hr>
+                </h2>
+                    <h3>{{hotDescription}}</h3>
+                </header>
+                <a href="#" class="image main" (click)="handleClick($event,hotID,hotName,hotDescription,hotGoal,hotImageData, hotcurrent)"><img [src]="hotimage" alt="" /></a>
+                <ul class="actions special">
+                    <li>
+                        <a (click)="handleClick($event,hotID,hotName,hotDescription,hotGoal,hotImageData, hotcurrent)" class="button large">立即贊助</a>
+                    </li>
+                </ul>
+                <h3><app-timer [countdownTime]="hotEnddate"></app-timer></h3>
+
+
+                <div class="hotcontainer">
+                  <div class="hotleft">
+                      <h4>{{hotName}}</h4>
+                  </div>
+                  <div class="hotright">
+                      <h3>
+                          {{hotcurrent | currency: 'NT$':'symbol':'1.0-0'}}
+                      </h3>
+                  </div>
+              </div>
+
+            </article>
+
+            <!--Section 募資產品區塊-->
+            <div style="height: 1300px;">
+              <h2 style="height: 2%;">群眾集資</h2>
+            <section class="tiles"  style="margin: 5% 0 0 -40;">
+
+              <article class="style1" *ngFor="let fund of items">
+                <span class="image">
+                  <img [src]="fund.imageBlob" alt="">
+                </span>
+                <a (click)="handleClick($event,fund.fFundrasingId,fund.fEventName,fund.fFundraisingDescription,fund.fFundrasingGoal,fund.imageData,fund.fCurrentAmount)" >
+                    <div class="content">
+                        <p>{{fund.fFundraisingDescription}}</p>
+                    </div>
+                </a>
+                <div>
+                  <h3 style="color:black">{{fund.fEventName}}</h3>
+                </div>
+                <h5 class="money" style="color:green">{{ fund.fCurrentAmount | currency: 'NT$':'symbol':'1.0-0' }}</h5>
+                <div>
+                  <ngb-progressbar
+                    type="primary"
+                    [value]="fund.fCurrentAmount / fund.fFundrasingGoal * 100"
+                    [striped]="true"
+                    [animated]="true">{{ (fund.fCurrentAmount / fund.fFundrasingGoal * 100) | number: '1.0-0' }}%
+                  </ngb-progressbar>
+                </div>
+
+              <h5>募資期間: {{fund.fStartdate| date:'yyyy-MM-dd'}} ~ {{fund.fEnddate| date:'yyyy-MM-dd'}}</h5>
+              <h5>剩餘天數: {{fund.fEnddate| dateDifference }}</h5>
+              </article>
+            </section>
+          </div>
+            <!-- Footer 頁面-->
+            <footer>
+                <div class="pagination">
+                  <button (click)="onPageChange(currentpage-1)" [disabled]="currentpage ===1">上一頁</button>
+                    <div *ngFor="let i of pagesArray">
+                      <button (click)="onPageChange(i)">{{i}}</button>
+                    </div>
+                    <button (click)="onPageChange(currentpage+1)" [disabled]="currentpage ===totalPages">下一頁</button>
+                </div>
+            </footer>
+
+        </div>
+
+        <!-- Footer 填表單-->
+        <footer id="footer">
+            <section>
+                <form method="post" action="#">
+                    <div class="fields">
+                        <div class="field">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" />
+                        </div>
+                        <div class="field">
+                            <label for="email">Email</label>
+                            <input type="text" name="email" id="email" />
+                        </div>
+                        <div class="field">
+                            <label for="message">Message</label>
+                            <textarea name="message" id="message" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <ul class="actions">
+                        <li>
+                            <input type="submit" value="Send Message" />
+                        </li>
+                    </ul>
+                </form>
+            </section>
+            <section class="split contact">
+                <section class="alt">
+                    <h3>Address</h3>
+                    <p>
+                      106台北市大安區復興南路一段660號5樓
+                    </p>
+                </section>
+                <section>
+                    <h3>Phone</h3>
+                    <p>
+                        <a href="#">(02) 665-7381</a>
+                    </p>
+                </section>
+                <section>
+                    <h3>Email</h3>
+                    <p>
+                        <a href="#">a1541Hcf@gmail.com</a>
+                    </p>
+                </section>
+                <section>
+                    <h3>Social</h3>
+                    <ul class="icons alt">
+                        <li>
+                            <a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a>
+                        </li>
+                        <li>
+                            <a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a>
+                        </li>
+                        <li>
+                            <a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a>
+                        </li>
+                        <li>
+                            <a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+        </footer>
+
+        <!-- Copyright -->
+        <div id="copyright">
+            <ul>
+                <li>&copy; Untitled</li>
+                <li>
+                    Design:
+                    <a href="https://html5up.net">HTML5 UP</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>

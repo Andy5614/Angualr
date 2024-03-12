@@ -1,0 +1,215 @@
+<!DOCTYPE HTML>
+<head>
+</head>
+<html>
+  <body>
+  <!-- header -->
+  <header>
+    <div class="container">
+      <a href="#" class="nav__brand"><img src="../../assets/images/OIG311.jpg"></a>
+      <!-- nav toggle -->
+      <input type="checkbox" class="nav__toggle" id="nav__toggle" />
+      <label class="nav__toggle__label" for="nav__toggle">
+        <span class="nav__toggle__btn"></span>
+      </label>
+      <!-- nav bar -->
+      <nav class="nav">
+        <!-- nav list -->
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="#men">商品</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#women">募資</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#news">最新消息</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#customized">客製商品</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#contact">聯絡我們</a>
+          </li>
+        </ul>
+        <!-- nav icons -->
+        <div class="nav__icons">
+          <a class="nav__icon--search"><img src="../../assets/images/icon-search@3x.png"></a>
+          <a class="nav__icon--cart"><img src="../../assets/images/icon-cart@3x.png"></a>
+          <a class="nav__icon--mode"><img src="../../assets/images/icon-mode@3x.png"></a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- main-->
+  <main>
+    <div class="container">
+      <h1 class="main__title">結帳</h1>
+
+      <section class="main__content">
+        <!-- left part-->
+        <div class="main__content__left">
+          <!-- stepper -->
+          <div id="stepper" class="stepper">
+            <div class="step active">
+              <!-- <div class="step__circle"></div> -->
+              <!-- <h4 class="step__label">寄送地址</h4> -->
+            </div>
+          </div>
+
+          <!-- form -->
+          <form id="form">
+            <div class="form__content">
+              <div class="form__part">
+                <h2 class="form__title">寄送地址</h2>
+                <div class="form__row--gender">
+                  <label for="gender">稱謂</label>
+                  <div class="select-wrapper">
+                    <select name="gender" id="gender" required>
+                      <option value="male">先生</option>
+                      <option value="female">小姐</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form__row--name">
+                  <label for="name">姓名</label>
+                  <input name="name" id="name" type="text" placeholder="請輸入姓名"[value]="FormName">
+                </div>
+                <div class="form__row--phone">
+                  <label for="phone">電話</label>
+                  <input name="phone" id="phone" type="text" placeholder="請輸入行動電話" [value]="FormPhone">
+                </div>
+                <div class="form__row--email">
+                  <label for="email">Email</label>
+                  <input name="email" id="email" type="text" placeholder="請輸入電子郵件" [value]="FormEmail">
+                </div>
+                <div class="form__row--city">
+                  <label for="city">縣市</label>
+                  <div class="select-wrapper">
+                    <select name="city" id="city" required>
+                      <option value=""selected>請選擇縣市</option>
+                      <option value="基隆市">基隆市</option>
+                      <option value="台北市">台北市</option>
+                      <option value="新北市">新北市</option>
+                      <option value="桃園市">桃園市</option>
+                      <option value="新竹市">新竹市</option>
+                      <option value="新竹縣">新竹縣</option>
+                      <option value="苗栗市">苗栗市</option>
+                      <option value="台中市">台中市</option>
+                      <option value="彰化縣">彰化縣</option>
+                      <option value="南投縣">南投縣</option>
+                      <option value="雲林縣">雲林縣</option>
+                      <option value="嘉義市">嘉義市</option>
+                      <option value="嘉義縣">嘉義縣</option>
+                      <option value="台南市">台南市</option>
+                      <option value="高雄市">高雄市</option>
+                      <option value="屏東縣">屏東縣</option>
+                      <option value="台東縣">台東縣</option>
+                      <option value="花蓮縣">花蓮縣</option>
+                      <option value="宜蘭縣">宜蘭縣</option>
+                      <option value="澎湖縣">澎湖縣</option>
+                      <option value="金門縣">金門縣</option>
+                      <option value="連江縣">連江縣</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form__row--address">
+                  <label for="address">地址</label>
+                  <input name="address" id="address" type="text" placeholder="請輸入地址" [value]="FormAddress">
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- right part-->
+        <div class="main__content__right">
+          <div id="cart" class="cart">
+            <h3 class="cart__title">購物籃</h3>
+            <!-- cart items -->
+            <div id="cart__items" class="cart__items scrollbar">
+              <div class="cart__item" data-id="1">
+                <img [src]="image" alt="product image" class="item__img">
+                <div class="item__info">
+                  <div class="item__detail">
+                    <span class="item__name">{{ItemName}}</span>
+                    <div class="item__quantity">
+                      <div class="item__quantity--btn item__quantity--minus" (click)="reduce()">－</div>
+                      <span class="item__quantity--number">{{stock}}</span>
+                      <div class="item__quantity--btn item__quantity--plus" (click)="add()">＋</div>
+                    </div>
+                  </div>
+                  <span class="item__price" data-price="3999">{{amount| currency: 'NTS':'symbol':'1.0-0'}}</span>
+                </div>
+              </div>
+            </div>
+            <!-- cart charge -->
+            <div class="cart__shipping">
+              <h5 class="cart__shipping--subtitle">運費</h5>
+              <h5 class="cart__shipping--fee">免費</h5>
+            </div>
+            <div class="cart__sum">
+              <h5 class="cart__sum--subtitle">小計</h5>
+              <h5 class="cart__sum--price">{{TotalAmount| currency: 'NTS':'symbol':'1.0-0'}}</h5>
+            </div>
+          </div>
+        </div>
+        <section>
+          <div >
+            <button class="btntest" (click)="demo()" >Demo</button>
+        </div>
+          <div>
+            <button class="btntest" (click)="checkoutAPI()">結帳</button>
+        </div>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <!-- footer -->
+  <footer>
+    <div class="container">
+      <a href="#" class="footer__brand"><img src="../../assets/images/bimg.png"></a>
+      <div class="footer__content">
+        <div class="footer__list--service">
+          <h2 class="footer__subtitle">客戶服務</h2>
+          <div class="footer__items">
+            <a class="footer__link" href="#">運送說明</a>
+            <a class="footer__link" href="#">退換貨相關</a>
+            <a class="footer__link" href="#">付款資訊</a>
+            <a class="footer__link" href="#">FAQ</a>
+          </div>
+        </div>
+        <div class="footer__list--about">
+          <h2 class="footer__subtitle">關於我們</h2>
+          <div class="footer__items">
+            <a class="footer__link" href="#">品牌故事</a>
+            <a class="footer__link" href="#">媒體聯繫</a>
+            <a class="footer__link" href="#">Press Kit</a>
+          </div>
+        </div>
+        <div class="footer__list--info">
+          <h2 class="footer__subtitle">資訊</h2>
+          <div class="footer__items">
+            <a class="footer__link" href="#">隱私權政策</a>
+            <a class="footer__link" href="#">Cookie</a>
+            <a class="footer__link" href="#">GDPR</a>
+          </div>
+        </div>
+        <div class="footer__list--contact">
+          <h2 class="footer__subtitle">追蹤 募書</h2>
+          <div class="footer__items">
+            <a class="footer__link footer__link--phone">+886 02123-45678</a>
+            <div class="footer__item">
+              <a href="#" class="footer__icon--fb"><img src="../../assets/images/social-fb@3x.png"></a>
+              <a href="#" class="footer__icon--ig"><img src="../../assets/images/social-ig@3x.png"></a>
+              <a href="#" class="footer__icon--wa"><img src="../../assets/images/social-wa@3x.png"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

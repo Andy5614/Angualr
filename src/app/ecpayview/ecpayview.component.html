@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<head>
+</head>
+<html>
+  <body>
+  <!-- header -->
+  <header>
+    <div class="container">
+      <a href="#" class="nav__brand"><img src="../../assets/images/OIG311.jpg"></a>
+      <!-- nav toggle -->
+      <input type="checkbox" class="nav__toggle" id="nav__toggle" />
+      <label class="nav__toggle__label" for="nav__toggle">
+        <span class="nav__toggle__btn"></span>
+      </label>
+      <!-- nav bar -->
+      <nav class="nav">
+        <!-- nav list -->
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="#men">商品</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#women">募資</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#news">最新消息</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#customized">客製商品</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#contact">聯絡我們</a>
+          </li>
+        </ul>
+        <!-- nav icons -->
+        <div class="nav__icons">
+          <a class="nav__icon--search"><img src="../../assets/images/icon-search@3x.png"></a>
+          <a class="nav__icon--cart"><img src="../../assets/images/icon-cart@3x.png"></a>
+          <a class="nav__icon--mode"><img src="../../assets/images/icon-mode@3x.png"></a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- main-->
+  <main>
+    <div class="container">
+      <h1 class="main__title">訂購完成</h1>
+
+      <section class="main__content">
+        <div class="main__content__right">
+          <div id="cart" class="cart">
+            <h2 class="cart__title">訂單明細</h2>
+            <!-- cart items -->
+            <!-- cart charge -->
+            <div class="cart__shipping">
+              <h3 class="cart__shipping--subtitle">訂單編號</h3>
+              <h3 class="cart__shipping--fee">{{TradeNo}}</h3>
+            </div>
+            <div class="cart__shipping">
+              <h3 class="cart__shipping--subtitle">商品</h3>
+              <h3 class="cart__shipping--fee">{{ItemName}}</h3>
+            </div>
+            <div class="cart__shipping">
+              <h3 class="cart__shipping--subtitle">付款日期</h3>
+              <h3 class="cart__shipping--fee">{{PaymentDate}}</h3>
+            </div>
+            <div class="cart__shipping">
+              <h3 class="cart__shipping--subtitle">付款方式</h3>
+              <h3 class="cart__shipping--fee">{{PaymentType}}</h3>
+            </div>
+            <div class="cart__sum">
+              <h3 class="cart__sum--subtitle">價格</h3>
+              <h3 class="cart__sum--price">{{TotalAmount| currency: 'NTS':'symbol':'1.0-0'}}</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- footer -->
+  <footer>
+    <div class="container">
+      <a href="#" class="footer__brand"><img src="../../assets/images/bimg.png"></a>
+      <div class="footer__content">
+        <div class="footer__list--service">
+          <h2 class="footer__subtitle">客戶服務</h2>
+          <div class="footer__items">
+            <a class="footer__link" href="#">運送說明</a>
+            <a class="footer__link" href="#">退換貨相關</a>
+            <a class="footer__link" href="#">付款資訊</a>
+            <a class="footer__link" href="#">FAQ</a>
+          </div>
+        </div>
+        <div class="footer__list--about">
+          <h2 class="footer__subtitle">關於我們</h2>
+          <div class="footer__items">
+            <a class="footer__link" href="#">品牌故事</a>
+            <a class="footer__link" href="#">媒體聯繫</a>
+            <a class="footer__link" href="#">Press Kit</a>
+          </div>
+        </div>
+        <div class="footer__list--info">
+          <h2 class="footer__subtitle">資訊</h2>
+          <div class="footer__items">
+            <a class="footer__link" href="#">隱私權政策</a>
+            <a class="footer__link" href="#">Cookie</a>
+            <a class="footer__link" href="#">GDPR</a>
+          </div>
+        </div>
+        <div class="footer__list--contact">
+          <h2 class="footer__subtitle">追蹤 募書</h2>
+          <div class="footer__items">
+            <a class="footer__link footer__link--phone">+886 02123-45678</a>
+            <div class="footer__item">
+              <a href="#" class="footer__icon--fb"><img src="../../assets/images/social-fb@3x.png"></a>
+              <a href="#" class="footer__icon--ig"><img src="../../assets/images/social-ig@3x.png"></a>
+              <a href="#" class="footer__icon--wa"><img src="../../assets/images/social-wa@3x.png"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+

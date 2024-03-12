@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<head>
+</head>
+<html>
+  <body class="is-preload">
+
+    <!-- Header -->
+      <section id="header" >
+        <header>
+          <span class="image avatar"><img [src]="image" alt="" /></span>
+          <h1 id="logo"><a href="#">{{name}}</a></h1>
+
+          <div style="display: flex; padding: 2% 0 2% 0;">
+            <div style="flex: 1;">
+                <app-circular-progress-bar [progress]="value"></app-circular-progress-bar>
+            </div>
+
+            <div style="flex: 1; padding-top: 5%;" >
+                <h5>目標金額:{{goal| currency: 'NTS':'symbol':'1.0-0'}}</h5>
+                <h4>{{current| currency: 'NTS':'symbol':'1.0-0'}}</h4>
+            </div>
+        </div>
+
+
+          <p>
+            {{content}}
+          </p>
+        </header>
+        <nav id="navtest">
+          <ul>
+            <li>關於</li>
+            <li>贊助專案</li>
+            <li>保證</li>
+            <li>客服聯絡</li>
+          </ul>
+        </nav>
+        <footer>
+          <ul class="icons">
+            <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+            <li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+          </ul>
+        </footer>
+      </section>
+
+    <!-- Wrapper -->
+      <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+
+          <!-- One 關於-->
+          <section id="one">
+            <div class="image main" data-position="center">
+              <img [src]="image" alt="" class="imgbacke"/>
+            </div>
+            <div class="container">
+              <header class="major">
+                <h2>專案內容</h2>
+                <p>
+                  {{name}}
+                </p>
+              </header>
+              <p>
+                {{content}}
+              </p>
+            </div>
+          </section>
+
+          <!-- TWO 計畫-->
+          <section id="three">
+            <div class="container">
+              <h3>贊助專案</h3>
+              <p>
+                每個計畫都會由發起者準備不同金額的贊助回饋。你可以透過贊助這些最新、最快、最與眾不同的商品或美好體驗、支持他們的夢想實現。
+
+                計畫成功後，你就能依照贊助的金額得到你所預購的驚喜回饋，同時也讓一件美好的事物發生在你我的生活中！
+              </p>
+              <div class="features" >
+                <article *ngFor = "let plan of fundrasingsplan">
+                  <a (click)="handleClick($event,plan.fPlanId, plan.fPlanName, plan.fPlanAmount, plan.fPlanDescription)"class="image"><img [src]="image" alt="" /></a>
+                  <div class="inner">
+                    <h4>{{plan.fPlanName}}</h4>
+                    <span>{{plan.fPlanAmount| currency: 'NTS':'symbol':'1.0-0'}}</span>
+                    <p>
+                      {{plan.fPlanDescription}}
+                    </p>
+                  </div>
+                </article>
+              </div>
+            </div>
+            </section>
+
+          <!-- Three 規劃中-->
+          <section id="two">
+            <div class="container">
+              <h3>保證</h3>
+              <p>如果計畫期限到了仍然沒有達到目標，會透過您贊助時的原付款方式退還您所支持的金額（不包含虛擬帳號轉帳交易手續費）。您將會收到金流公司所寄出的退款信件，請根據信中的指示完成退款步驟。</p>
+              <ul class="feature-icons">
+                <li><img src="../../assets/images/money.png">第三方支付</li>
+                <li><img src="../../assets/images/warranty.png">試用期保固</li>
+                <li><img src="../../assets/images/law.png">法律相關服務</li>
+                <li><img src="../../assets/images/service.png">24H客服在線</li>
+                <li><img src="../../assets/images/rating.png">募資方信用評分</li>
+                <li><img src="../../assets/images/feedback.png">顧客反饋</li>
+              </ul>
+            </div>
+          </section>
+
+
+          <!-- Four -->
+          <section id="four">
+            <div class="container">
+              <h3>客服聯絡方式</h3>
+              <p>如對產品有任何疑問，歡迎點選頁面的 「聯絡提案人」與我們聯絡，或透過電子信件與我們聯繫。</p>
+              <form method="post" action="#">
+                <div class="row gtr-uniform">
+                  <div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
+                  <div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
+                  <div class="col-12"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
+                  <div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
+                  <div class="col-12">
+                    <ul class="actions">
+                      <li><input type="submit" class="primary" value="送出" /></li>
+                      <li><input type="reset" value="重設" /></li>
+                    </ul>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </section>
+
+
+
+        </div>
+
+        <!-- Footer -->
+          <section id="footer">
+            <div class="container">
+              <ul class="copyright">
+                <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+              </ul>
+            </div>
+          </section>
+
+      </div>
+
+    <!-- Scripts -->
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/jquery.scrollex.min.js"></script>
+      <script src="assets/js/jquery.scrolly.min.js"></script>
+      <script src="assets/js/browser.min.js"></script>
+      <script src="assets/js/breakpoints.min.js"></script>
+      <script src="assets/js/util.js"></script>
+      <script src="assets/js/main.js"></script>
+
+  </body>
+</html>

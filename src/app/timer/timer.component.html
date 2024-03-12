@@ -1,0 +1,19 @@
+
+
+<div class="timer" *ngIf ="remainingTime > 0" >
+  <div class="timer" *ngIf="remainingTime > 0">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-6">
+          <div class="timer alert alert-primary" *ngIf="remainingTime > 0" role="alert">
+            <div class="d-flex justify-content-center align-items-center">
+              <p class="timer-value mb-0">剩餘時間: {{ formatTime(remainingTime) }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

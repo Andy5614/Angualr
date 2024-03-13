@@ -1,6 +1,5 @@
 # Fundrasing-Website
 以Angular架設網頁前端，串接綠界科技API服務，將綠界回傳訂單傳回後台訂單管理系統
-![螢幕擷取畫面 2024-03-13 112000](https://github.com/Andy5614/Fundrasing-Website/assets/136292514/6ddf4fd0-3aa5-43c6-92fd-9453b2d29d04)
 
 ![螢幕擷取畫面 2024-03-13 112010](https://github.com/Andy5614/Fundrasing-Website/assets/136292514/253d425d-809b-40f4-9133-2a8dbc9d2be5)
 
